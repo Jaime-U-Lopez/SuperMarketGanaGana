@@ -106,3 +106,29 @@ exports.deleteProduct = async (req, res) => {
 
 
 };
+
+
+
+
+
+exports.deleteAllProduct = async (req, res) => {
+  try {
+    const deleteAllPrud = await Product.find(req.body);
+
+    if (!deleteAllPrud) {
+      res
+        .status(404)
+        .json({ msg: "No hay registros para eliminar con ese id " });
+      console.log("no hay registros para eliminar con ese id");
+      return;
+    }
+    await Product.deleteMany( req.body );
+
+    res.json({ msg: "productos Eliminados" });
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+
+
+};

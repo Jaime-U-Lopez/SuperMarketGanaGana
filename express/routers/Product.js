@@ -12,6 +12,7 @@ router.get('/', productController.getProduct);
 router.get('/:id', productController.getOneProduct);
 router.put('/:id', productController.updateProduct);
 router.delete('/:id', productController.deleteProduct)
+router.delete('/', productController.deleteAllProduct)
 
 
 

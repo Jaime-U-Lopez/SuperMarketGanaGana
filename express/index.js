@@ -1,5 +1,7 @@
 //invocando a expres
 const express = require("express");
+const cors = require("cors")
+
 
 //importar nuestra base de datos
 
@@ -11,6 +13,8 @@ const app = express();
 //madlede
 
 app.use(express.json());
+app.use(cors())
+
 
 conectarDB()
 
