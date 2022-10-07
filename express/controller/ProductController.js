@@ -7,6 +7,7 @@ exports.createProduct = async (req, res) => {
     await product.save();
 
     res.status(201).send(req.body);
+   
   } catch (error) {
     console.log(error);
     res.status(500).send("hubo un error ");
@@ -97,11 +98,11 @@ exports.deleteProduct = async (req, res) => {
       return;
     }
     await Product.findByIdAndRemove({ _id: req.params.id });
-
+    
     res.json({ msg: "producto Eliminado" });
   } catch (error) {
     console.log(error);
-    process.exit(1);
+    //process.exit(1);
   }
 
 
